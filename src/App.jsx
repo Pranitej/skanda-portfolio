@@ -31,7 +31,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 transition-colors duration-500">
+    <div className="relative isolate min-h-screen overflow-x-clip bg-[#faf8f2] dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-500">
+      <div aria-hidden="true" className="page-ambient pointer-events-none fixed inset-0 -z-10" />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Hero theme={theme} />
       <Stats />

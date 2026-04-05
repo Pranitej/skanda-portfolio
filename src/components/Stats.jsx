@@ -26,9 +26,9 @@ export default function Stats() {
   const [ref, isVisible] = useScrollReveal(0.2);
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden">
+    <section className="section-blend light-sharp-top relative py-20 md:py-28 overflow-hidden">
       {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
+      <div className="section-surface absolute inset-0" />
       <div className="absolute inset-0 texture-dots" />
 
       {/* Floating gold orbs */}

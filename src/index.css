@@ -7,6 +7,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   body {
     font-family: 'Inter', system-ui, sans-serif;
@@ -16,7 +18,119 @@
 }
 
 @layer utilities {
+  .page-ambient {
+    background:
+      radial-gradient(circle at top, rgba(212, 155, 0, 0.12), transparent 28%),
+      linear-gradient(180deg, #fffdf7 0%, #f8fafc 40%, #fffdf6 100%);
+  }
+  .dark .page-ambient {
+    background:
+      radial-gradient(circle at top, rgba(212, 155, 0, 0.08), transparent 24%),
+      linear-gradient(180deg, #020617 0%, #0f172a 44%, #020617 100%);
+  }
+  .page-ambient::before,
+  .page-ambient::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .page-ambient::before {
+    background: radial-gradient(circle at 12% 32%, rgba(255, 200, 50, 0.14), transparent 30%);
+  }
+  .page-ambient::after {
+    background: radial-gradient(circle at 88% 58%, rgba(212, 155, 0, 0.1), transparent 28%);
+  }
+  .dark .page-ambient::before {
+    background: radial-gradient(circle at 12% 32%, rgba(255, 200, 50, 0.08), transparent 26%);
+  }
+  .dark .page-ambient::after {
+    background: radial-gradient(circle at 88% 58%, rgba(212, 155, 0, 0.06), transparent 24%);
+  }
+
+  .section-surface {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(248, 250, 252, 0.8) 50%,
+      rgba(255, 255, 255, 0.92) 100%
+    );
+  }
+  .dark .section-surface {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.92) 0%,
+      rgba(15, 23, 42, 0.8) 52%,
+      rgba(2, 6, 23, 0.94) 100%
+    );
+  }
+
+  .footer-surface {
+    background: linear-gradient(
+      180deg,
+      rgba(248, 250, 252, 0.9) 0%,
+      rgba(226, 232, 240, 0.96) 100%
+    );
+  }
+  .dark .footer-surface {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.88) 0%,
+      rgba(2, 6, 23, 0.98) 100%
+    );
+  }
+
+  .section-blend {
+    isolation: isolate;
+  }
+  .section-blend::before,
+  .section-blend::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: clamp(72px, 10vw, 128px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .section-blend::before {
+    top: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(250, 248, 242, 0.98) 0%,
+      rgba(250, 248, 242, 0.82) 38%,
+      rgba(250, 248, 242, 0) 100%
+    );
+  }
+  .section-blend::after {
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(250, 248, 242, 0) 0%,
+      rgba(250, 248, 242, 0.82) 62%,
+      rgba(250, 248, 242, 0.98) 100%
+    );
+  }
+  .dark .section-blend::before {
+    background: linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0.98) 0%,
+      rgba(2, 6, 23, 0.82) 38%,
+      rgba(2, 6, 23, 0) 100%
+    );
+  }
+  .dark .section-blend::after {
+    background: linear-gradient(
+      180deg,
+      rgba(2, 6, 23, 0) 0%,
+      rgba(2, 6, 23, 0.82) 62%,
+      rgba(2, 6, 23, 0.98) 100%
+    );
+  }
   /* ===== GLASSMORPHISM — more visible, more premium ===== */
+  html:not(.dark) .light-sharp-top::before {
+    background: transparent;
+  }
   .glass {
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -92,23 +206,9 @@
 
 /* ===== CUSTOM SCROLLBAR ===== */
 ::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-.dark ::-webkit-scrollbar-track {
-  background: #0f172a;
-}
-::-webkit-scrollbar-thumb {
-  background: #FEDD7E;
-  border-radius: 9999px;
-}
-.dark ::-webkit-scrollbar-thumb {
-  background: #7F5D00;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #D49B00;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 /* ===== HERO OVERLAY — light mode: more transparent, shows image better ===== */

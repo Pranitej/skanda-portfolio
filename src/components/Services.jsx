@@ -59,9 +59,9 @@ export default function Services() {
   const [titleRef, titleVisible] = useScrollReveal(0.3);
 
   return (
-    <section id="services" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="services" className="section-blend relative py-24 md:py-32 overflow-hidden">
       {/* Background gradient + textures */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/80 to-white dark:from-slate-900 dark:via-slate-800/80 dark:to-slate-900" />
+      <div className="section-surface absolute inset-0" />
       <div className="absolute inset-0 texture-dots" />
       <div className="absolute inset-0 texture-diagonal" />
 

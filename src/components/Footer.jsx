@@ -2,9 +2,9 @@ import { config } from '../config';
 
 export default function Footer() {
   return (
-    <footer className="relative pt-16 pb-8 overflow-hidden">
+    <footer className="section-blend relative pt-16 pb-8 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-900 dark:to-black" />
+      <div className="footer-surface absolute inset-0" />
       <div className="absolute inset-0 texture-grid" />
 
       {/* Gold accent line at top */}

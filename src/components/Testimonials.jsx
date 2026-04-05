@@ -7,8 +7,8 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800" />
+    <section className="section-blend relative py-24 md:py-32 overflow-hidden">
+      <div className="section-surface absolute inset-0" />
       <div className="absolute inset-0 texture-diagonal" />
 
       {/* Large radial glow behind card */}

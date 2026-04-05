@@ -5,6 +5,7 @@ export function useScrollReveal(threshold = 0.15) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const effectiveThreshold = Math.min(threshold, 0.18);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -12,7 +13,10 @@ export function useScrollReveal(threshold = 0.15) {
           observer.unobserve(entry.target);
         }
       },
-      { threshold }
+      {
+        threshold: effectiveThreshold,
+        rootMargin: '0px 0px 12% 0px',
+      }
     );
 
     if (ref.current) observer.observe(ref.current);

@@ -10,8 +10,8 @@ export default function Portfolio() {
   const filtered = activeFilter === 'All' ? config.portfolio : config.portfolio.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="portfolio" className="relative py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800" />
+    <section id="portfolio" className="section-blend relative py-24 md:py-32 overflow-hidden">
+      <div className="section-surface absolute inset-0" />
       <div className="absolute inset-0 texture-grid" />
       <div className="absolute inset-0 texture-scanlines" />
 

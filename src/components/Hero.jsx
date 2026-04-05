@@ -19,6 +19,7 @@ export default function Hero({ theme }) {
         {/* Premium gradient overlay for depth and professionalism */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#0A0A0A]/85 via-[#0A0A0A]/60 to-[#0A0A0A]/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] dark:from-[#0f172a] via-transparent to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-b from-transparent via-transparent to-transparent dark:via-[#020617]/65 dark:to-[#020617]" />
       </div>
 
       {/* Decorative Floating Elements - Subtle and Premium */}
