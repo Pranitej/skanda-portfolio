@@ -60,13 +60,16 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background gradient + texture */}
+      {/* Background gradient + textures */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/80 to-white dark:from-slate-900 dark:via-slate-800/80 dark:to-slate-900" />
       <div className="absolute inset-0 texture-dots" />
+      <div className="absolute inset-0 texture-diagonal" />
 
       {/* Decorative corner accents */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-brand/5 dark:bg-brand/3 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-gold-400/5 dark:bg-gold-400/3 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-brand-300/10 dark:bg-brand-400/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 animate-float-slow" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-400/8 dark:bg-brand-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 animate-float-reverse" />
+      {/* Center glow */}
+      <div className="absolute top-1/2 right-[5%] w-72 h-72 bg-brand-200/10 dark:bg-brand-400/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}

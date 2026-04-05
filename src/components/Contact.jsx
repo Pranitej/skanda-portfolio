@@ -7,6 +7,15 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
+      <div className="absolute inset-0 texture-dots" />
+      <div className="absolute inset-0 texture-cross" />
+
+      {/* Corner accent glows */}
+      <div className="absolute -top-10 right-[5%] w-80 h-80 bg-brand-300/10 dark:bg-brand-400/5 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute -bottom-10 left-[10%] w-72 h-72 bg-brand-200/8 dark:bg-brand-500/4 rounded-full blur-3xl animate-float-reverse" style={{ animationDelay: '3s' }} />
+      <div className="absolute top-1/2 right-[15%] w-48 h-48 bg-brand-400/6 dark:bg-brand-400/3 rounded-full blur-3xl animate-float" style={{ animationDelay: '5s' }} />
+      {/* Top accent line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-56 h-[1px] bg-gradient-to-r from-transparent via-brand-400/30 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div

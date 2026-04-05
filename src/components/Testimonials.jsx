@@ -9,6 +9,17 @@ export default function Testimonials() {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800" />
+      <div className="absolute inset-0 texture-diagonal" />
+
+      {/* Large radial glow behind card */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand-300/6 dark:bg-brand-400/3 rounded-full blur-3xl" />
+      {/* Floating accent orbs */}
+      <div className="absolute top-16 right-[12%] w-56 h-56 bg-brand-200/10 dark:bg-brand-500/5 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-16 left-[8%] w-72 h-72 bg-brand-300/8 dark:bg-brand-400/4 rounded-full blur-3xl animate-float-reverse" />
+      {/* Corner accent sparkles */}
+      <div className="absolute top-10 left-10 w-2 h-2 bg-brand-400/30 dark:bg-brand-300/20 rounded-full" />
+      <div className="absolute top-24 right-20 w-1.5 h-1.5 bg-brand-400/25 dark:bg-brand-300/15 rounded-full" />
+      <div className="absolute bottom-20 right-16 w-2 h-2 bg-brand-400/20 dark:bg-brand-300/10 rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}

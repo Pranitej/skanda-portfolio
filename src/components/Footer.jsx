@@ -5,6 +5,12 @@ export default function Footer() {
     <footer className="relative pt-16 pb-8 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-slate-900 dark:to-black" />
+      <div className="absolute inset-0 texture-grid" />
+
+      {/* Gold accent line at top */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-[1px] bg-gradient-to-r from-transparent via-brand-400/40 to-transparent" />
+      {/* Subtle corner glow */}
+      <div className="absolute -top-10 right-[10%] w-64 h-64 bg-brand-300/6 dark:bg-brand-400/3 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">

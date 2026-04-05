@@ -12,6 +12,14 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-slate-50 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800" />
+      <div className="absolute inset-0 texture-grid" />
+      <div className="absolute inset-0 texture-scanlines" />
+
+      {/* Floating orbs */}
+      <div className="absolute top-20 left-[8%] w-72 h-72 bg-brand-300/8 dark:bg-brand-400/5 rounded-full blur-3xl animate-float-slow" />
+      <div className="absolute bottom-32 right-[10%] w-96 h-96 bg-brand-200/10 dark:bg-brand-500/4 rounded-full blur-3xl animate-float-reverse" style={{ animationDelay: '3s' }} />
+      {/* Top accent line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-brand-400/40 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}

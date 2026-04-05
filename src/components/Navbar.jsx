@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { config } from '../config';
+import { useState, useEffect } from "react";
+import { config } from "../config";
 
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
@@ -7,8 +7,8 @@ export default function Navbar({ theme, toggleTheme }) {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -16,18 +16,34 @@ export default function Navbar({ theme, toggleTheme }) {
       <nav
         className={`rounded-2xl px-5 py-3 md:px-8 md:py-4 flex justify-between items-center max-w-7xl mx-auto transition-all duration-500 ${
           scrolled
-            ? 'glass-strong shadow-2xl'
-            : 'glass'
+            ? theme === "dark"
+              ? "bg-[rgba(10,10,10,0.3)] backdrop-blur-2xl shadow-2xl border border-[rgba(255,255,255,0.15)]"
+              : "bg-[rgba(255,255,255,0.3)] backdrop-blur-2xl shadow-2xl border border-[rgba(255,255,255,0.2)]"
+            : theme === "dark"
+              ? "bg-[rgba(10,10,10,0.3)] backdrop-blur-2xl border border-[rgba(255,255,255,0.12)] shadow-lg"
+              : "bg-[rgba(255,255,255,0.3)] backdrop-blur-2xl border border-[rgba(255,255,255,0.2)] shadow-lg"
         }`}
       >
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand to-amber-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-brand/30 group-hover:shadow-brand/50 transition-shadow duration-300">
+          <div
+            className={`w-10 h-10 rounded-xl bg-gradient-to-br from-[#D49B00] to-[#B58500] flex items-center justify-center text-white font-display font-bold text-lg shadow-lg transition-shadow duration-300 ${
+              theme === "dark"
+                ? "shadow-[rgba(212,155,0,0.3)] group-hover:shadow-[rgba(212,155,0,0.5)]"
+                : "shadow-[rgba(212,155,0,0.2)] group-hover:shadow-[rgba(212,155,0,0.4)]"
+            }`}
+          >
             S
           </div>
-          <span className="text-xl font-bold tracking-tight font-display hidden sm:block">
-            <span className="text-brand dark:text-brand-300">{config.company.name.split(' ')[0]}</span>{' '}
-            <span className="text-slate-700 dark:text-slate-300">{config.company.name.split(' ')[1]}</span>
+          <span className="text-base sm:text-xl font-bold tracking-tight font-display">
+            <span className="text-[#D49B00]">
+              {config.company.name.split(" ")[0]}
+            </span>{" "}
+            <span
+              className={theme === "dark" ? "text-white/90" : "text-slate-800"}
+            >
+              {config.company.name.split(" ")[1]}
+            </span>
           </span>
         </a>
 
@@ -37,7 +53,11 @@ export default function Navbar({ theme, toggleTheme }) {
             <a
               key={link.label}
               href={link.href}
-              className="px-4 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300 hover:bg-brand-50/50 dark:hover:bg-brand-900/20 transition-all duration-300"
+              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
+                theme === "dark"
+                  ? "text-white/80 hover:text-[#D49B00] hover:bg-[rgba(255,255,255,0.15)]"
+                  : "text-slate-700 hover:text-[#D49B00] hover:bg-[rgba(0,0,0,0.08)]"
+              }`}
             >
               {link.label}
             </a>
@@ -48,21 +68,57 @@ export default function Navbar({ theme, toggleTheme }) {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleTheme}
-            className="w-10 h-10 rounded-xl glass-card flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300"
+            className={`w-10 h-10 rounded-xl backdrop-blur-md flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 ${
+              theme === "dark"
+                ? "bg-[rgba(255,255,255,0.15)] border border-[rgba(255,255,255,0.2)] hover:border-[#D49B00]/50"
+                : "bg-[rgba(0,0,0,0.08)] border border-[rgba(0,0,0,0.15)] hover:border-[#D49B00]/50"
+            }`}
             aria-label="Toggle theme"
           >
-            <span className={`transition-transform duration-500 inline-block ${theme === 'dark' ? 'rotate-180' : 'rotate-0'}`}>
-              {theme === 'light' ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <span
+              className={`transition-transform duration-500 inline-block ${theme === "dark" ? "rotate-180" : "rotate-0"}`}
+            >
+              {theme === "light" ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-slate-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
+                </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-[#D49B00]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
               )}
             </span>
           </button>
 
           <a
             href="#contact"
-            className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-brand to-brand-700 text-white px-5 py-2.5 rounded-xl font-medium shadow-lg shadow-brand/30 hover:shadow-brand/50 hover:scale-105 active:scale-95 transition-all duration-300"
+            className={`hidden sm:flex items-center gap-2 text-white px-5 py-2.5 rounded-xl font-medium shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 backdrop-blur-md ${
+              theme === "dark"
+                ? "bg-[rgba(212,155,0,0.85)] hover:bg-[#D49B00] shadow-[rgba(212,155,0,0.4)] hover:shadow-[rgba(212,155,0,0.6)] border border-[rgba(255,255,255,0.1)]"
+                : "bg-[rgba(212,155,0,0.85)] hover:bg-[#D49B00] shadow-[rgba(212,155,0,0.3)] hover:shadow-[rgba(212,155,0,0.5)] border border-[rgba(255,255,255,0.3)]"
+            }`}
           >
             Get Quote
           </a>
@@ -70,31 +126,63 @@ export default function Navbar({ theme, toggleTheme }) {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden w-10 h-10 rounded-xl glass-card flex items-center justify-center"
+            className={`md:hidden w-10 h-10 rounded-xl backdrop-blur-md flex items-center justify-center transition-all duration-300 ${
+              theme === "dark"
+                ? "bg-[rgba(255,255,255,0.15)] border border-[rgba(255,255,255,0.2)] hover:border-[#D49B00]/50"
+                : "bg-[rgba(0,0,0,0.08)] border border-[rgba(0,0,0,0.15)] hover:border-[#D49B00]/50"
+            }`}
           >
             <div className="space-y-1.5">
-              <span className={`block w-5 h-0.5 bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${mobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
-              <span className={`block w-5 h-0.5 bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${mobileOpen ? 'opacity-0' : ''}`} />
-              <span className={`block w-5 h-0.5 bg-slate-700 dark:bg-slate-300 transition-all duration-300 ${mobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              <span
+                className={`block w-5 h-0.5 transition-all duration-300 ${
+                  theme === "dark" ? "bg-white/80" : "bg-slate-700"
+                } ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
+              />
+              <span
+                className={`block w-5 h-0.5 transition-all duration-300 ${
+                  theme === "dark" ? "bg-white/80" : "bg-slate-700"
+                } ${mobileOpen ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`block w-5 h-0.5 transition-all duration-300 ${
+                  theme === "dark" ? "bg-white/80" : "bg-slate-700"
+                } ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              />
             </div>
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-500 overflow-hidden ${mobileOpen ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'}`}>
-        <div className="glass-strong rounded-2xl p-4 max-w-7xl mx-auto space-y-1">
+      <div
+        className={`md:hidden transition-all duration-500 overflow-hidden ${mobileOpen ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"}`}
+      >
+        <div
+          className={`rounded-2xl p-4 max-w-7xl mx-auto space-y-1 backdrop-blur-2xl ${
+            theme === "dark"
+              ? "bg-[rgba(10,10,10,0.85)] border border-[rgba(255,255,255,0.15)] shadow-2xl"
+              : "bg-[rgba(255,255,255,0.85)] border border-[rgba(255,255,255,0.9)] shadow-2xl"
+          }`}
+        >
           {config.nav.links.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block px-4 py-3 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-brand hover:bg-brand-50/50 dark:hover:bg-brand-900/20 transition-all duration-300"
+              className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                theme === "dark"
+                  ? "text-white/80 hover:text-[#D49B00] hover:bg-[rgba(255,255,255,0.15)]"
+                  : "text-slate-700 hover:text-[#D49B00] hover:bg-[rgba(0,0,0,0.08)]"
+              }`}
             >
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="block text-center bg-gradient-to-r from-brand to-brand-700 text-white px-5 py-3 rounded-xl font-medium shadow-lg mt-2">
+          <a
+            href="#contact"
+            onClick={() => setMobileOpen(false)}
+            className="block text-center bg-[rgba(212,155,0,0.9)] hover:bg-[#D49B00] text-white px-5 py-3 rounded-xl font-medium shadow-lg shadow-[rgba(212,155,0,0.3)] mt-2 transition-all duration-300 backdrop-blur-md border border-[rgba(255,255,255,0.1)]"
+          >
             Get Quote
           </a>
         </div>

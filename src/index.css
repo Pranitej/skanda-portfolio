@@ -74,7 +74,7 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    background-image: linear-gradient(135deg, #0d9488, #14b8a6, #fbbf24);
+    background-image: linear-gradient(135deg, #D49B00, #FFC832, #D49B00);
   }
 
   /* ===== SHIMMER ===== */
@@ -101,14 +101,14 @@
   background: #0f172a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #99f6e4;
+  background: #FEDD7E;
   border-radius: 9999px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #0f766e;
+  background: #7F5D00;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0d9488;
+  background: #D49B00;
 }
 
 /* ===== HERO OVERLAY — light mode: more transparent, shows image better ===== */
@@ -130,22 +130,99 @@
 }
 
 /* ===== TEXTURE BACKGROUNDS ===== */
+
+/* Diagonal lines */
+.texture-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 28px,
+    rgba(212, 155, 0, 0.09) 28px,
+    rgba(212, 155, 0, 0.09) 29px
+  );
+}
+.dark .texture-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 28px,
+    rgba(255, 200, 50, 0.07) 28px,
+    rgba(255, 200, 50, 0.07) 29px
+  );
+}
+
+/* Cross-hatch pattern */
+.texture-cross {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(212, 155, 0, 0.07) 35px,
+      rgba(212, 155, 0, 0.07) 36px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 35px,
+      rgba(212, 155, 0, 0.07) 35px,
+      rgba(212, 155, 0, 0.07) 36px
+    );
+}
+.dark .texture-cross {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      rgba(255, 200, 50, 0.05) 35px,
+      rgba(255, 200, 50, 0.05) 36px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 35px,
+      rgba(255, 200, 50, 0.05) 35px,
+      rgba(255, 200, 50, 0.05) 36px
+    );
+}
+
+/* Horizontal scan lines */
+.texture-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(212, 155, 0, 0.05) 3px,
+    rgba(212, 155, 0, 0.05) 4px
+  );
+}
+.dark .texture-scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 200, 50, 0.04) 3px,
+    rgba(255, 200, 50, 0.04) 4px
+  );
+}
+
 .texture-dots {
-  background-image: radial-gradient(circle, rgba(13, 148, 136, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(212, 155, 0, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 .dark .texture-dots {
-  background-image: radial-gradient(circle, rgba(94, 234, 212, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255, 200, 50, 0.04) 1px, transparent 1px);
 }
 
 .texture-grid {
   background-image:
-    linear-gradient(rgba(13, 148, 136, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(13, 148, 136, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(212, 155, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 155, 0, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 .dark .texture-grid {
   background-image:
-    linear-gradient(rgba(94, 234, 212, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(94, 234, 212, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 200, 50, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 200, 50, 0.03) 1px, transparent 1px);
 }
