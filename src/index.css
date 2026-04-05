@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* ===== GLASSMORPHISM — more visible, more premium ===== */
+  .glass {
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background: rgba(255, 255, 255, 0.55);
+    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.55);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-strong {
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    background: rgba(255, 255, 255, 0.78);
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    box-shadow:
+      0 25px 50px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(255, 255, 255, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+  .dark .glass-strong {
+    background: rgba(15, 23, 42, 0.78);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 25px 50px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card {
+    backdrop-filter: blur(16px) saturate(160%);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    background: rgba(255, 255, 255, 0.45);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  .dark .glass-card {
+    background: rgba(30, 41, 59, 0.45);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  /* ===== TEXT GRADIENT — teal to gold ===== */
+  .text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, #0d9488, #14b8a6, #fbbf24);
+  }
+
+  /* ===== SHIMMER ===== */
+  .shimmer-bg {
+    background: linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255, 255, 255, 0.2) 37%,
+      transparent 63%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #99f6e4;
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #0f766e;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0d9488;
+}
+
+/* ===== HERO OVERLAY — light mode: more transparent, shows image better ===== */
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.3) 0%,
+    rgba(15, 23, 42, 0.4) 50%,
+    rgba(15, 23, 42, 0.6) 100%
+  );
+}
+.dark .hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(15, 23, 42, 0.92) 0%,
+    rgba(15, 23, 42, 0.6) 50%,
+    rgba(15, 23, 42, 0.3) 100%
+  );
+}
+
+/* ===== TEXTURE BACKGROUNDS ===== */
+.texture-dots {
+  background-image: radial-gradient(circle, rgba(13, 148, 136, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.dark .texture-dots {
+  background-image: radial-gradient(circle, rgba(94, 234, 212, 0.04) 1px, transparent 1px);
+}
+
+.texture-grid {
+  background-image:
+    linear-gradient(rgba(13, 148, 136, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 148, 136, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.dark .texture-grid {
+  background-image:
+    linear-gradient(rgba(94, 234, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(94, 234, 212, 0.03) 1px, transparent 1px);
+}
