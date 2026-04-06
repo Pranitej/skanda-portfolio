@@ -108,7 +108,7 @@ export default function Hero({ theme }) {
           >
             <a
               href="#contact"
-              className="group relative inline-flex items-center justify-center gap-2.5 bg-[#D49B00] hover:bg-[#B58500] text-white px-8 py-4 rounded-xl font-semibold text-base shadow-lg shadow-[#D49B00]/20 hover:shadow-[#D49B00]/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
+              className="group relative inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#D49B00] to-[#B58500] text-white px-8 py-4 rounded-xl font-semibold text-base shadow-xl shadow-[#D49B00]/30 hover:shadow-[#D49B00]/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
             >
               <span className="relative z-10">{config.hero.cta}</span>
               <svg
@@ -125,6 +125,7 @@ export default function Hero({ theme }) {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
+              <span className="absolute inset-0 shimmer-bg" />
             </a>
             <a
               href="#portfolio"

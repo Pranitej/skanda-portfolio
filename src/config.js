@@ -4,8 +4,10 @@
 export const config = {
   company: {
     name: "Skanda Industries",
-    tagline: "Premium Home Interiors & Construction — Elevating Your Living Spaces",
-    description: "We transform ordinary spaces into extraordinary experiences. From concept to completion, our team of expert designers and builders craft bespoke interiors that reflect your unique personality and lifestyle.",
+    tagline:
+      "Premium Home Interiors & Construction — Elevating Your Living Spaces",
+    description:
+      "We transform ordinary spaces into extraordinary experiences. From concept to completion, our team of expert designers and builders craft bespoke interiors that reflect your unique personality and lifestyle.",
     email: "contact@skandaindustries.com",
     phone: "+91 98765 43210",
     address: "123 Elite Avenue, Tech Park, Hyderabad, India",
@@ -30,7 +32,8 @@ export const config = {
 
   hero: {
     heading: ["Crafting Spaces", "That Inspire"],
-    subheading: "Award-winning interior design & construction with uncompromising quality and elegance.",
+    subheading:
+      "Award-winning interior design & construction with uncompromising quality and elegance.",
     cta: "Book Free Consultation",
     ctaSecondary: "View Our Work",
     backgroundImage: "/images/hero.png",
@@ -47,48 +50,78 @@ export const config = {
     {
       id: "modular-kitchens",
       title: "Modular Kitchens",
-      description: "State-of-the-art functional kitchens designed to match your culinary lifestyle with premium European hardware.",
+      description:
+        "State-of-the-art functional kitchens designed to match your culinary lifestyle with premium European hardware.",
       image: "/images/kitchen.png",
     },
     {
       id: "wardrobes",
       title: "Premium Wardrobes",
-      description: "Custom-built, space-saving sliding and walk-in wardrobes with luxury finishes and smart organization.",
+      description:
+        "Custom-built, space-saving sliding and walk-in wardrobes with luxury finishes and smart organization.",
       image: "/images/wardrobe.png",
     },
     {
       id: "home-interiors",
       title: "Full Home Interiors",
-      description: "End-to-end interior design and execution for living rooms, bedrooms, and every corner of your home.",
+      description:
+        "End-to-end interior design and execution for living rooms, bedrooms, and every corner of your home.",
       image: "/images/bedroom.png",
     },
     {
       id: "construction",
       title: "Construction & Renovation",
-      description: "Structural changes, civil work, and premium renovations handled by seasoned construction experts.",
+      description:
+        "Structural changes, civil work, and premium renovations handled by seasoned construction experts.",
       image: "/images/construction.png",
     },
     {
       id: "commercial",
       title: "Commercial Spaces",
-      description: "Dynamic and ergonomic office interiors that boost productivity and leave lasting impressions.",
+      description:
+        "Dynamic and ergonomic office interiors that boost productivity and leave lasting impressions.",
       image: "/images/office.png",
     },
     {
       id: "decor",
       title: "Decor & Furnishing",
-      description: "Curated lighting, custom soft furnishings, and bespoke home decor elements from around the world.",
+      description:
+        "Curated lighting, custom soft furnishings, and bespoke home decor elements from around the world.",
       image: "/images/hero.png",
     },
   ],
 
   portfolio: [
-    { image: "/images/hero.png", title: "Luxe Living Room", category: "Residential" },
-    { image: "/images/kitchen.png", title: "Modern Kitchen", category: "Kitchen" },
-    { image: "/images/bedroom.png", title: "Master Suite", category: "Bedroom" },
-    { image: "/images/wardrobe.png", title: "Walk-in Closet", category: "Wardrobe" },
-    { image: "/images/office.png", title: "Corporate Office", category: "Commercial" },
-    { image: "/images/construction.png", title: "Villa Project", category: "Construction" },
+    {
+      image: "/images/hero.png",
+      title: "Luxe Living Room",
+      category: "Residential",
+    },
+    {
+      image: "/images/kitchen.png",
+      title: "Modern Kitchen",
+      category: "Kitchen",
+    },
+    {
+      image: "/images/bedroom.png",
+      title: "Master Suite",
+      category: "Bedroom",
+    },
+    {
+      image: "/images/wardrobe.png",
+      title: "Walk-in Closet",
+      category: "Wardrobe",
+    },
+    {
+      image: "/images/office.png",
+      title: "Corporate Office",
+      category: "Commercial",
+    },
+    {
+      image: "/images/construction.png",
+      title: "Villa Project",
+      category: "Construction",
+    },
   ],
 
   testimonials: [
@@ -112,11 +145,57 @@ export const config = {
     },
   ],
 
+  about: {
+    subtitle: "Who We Are",
+    heading: "About Us",
+    story:
+      "Founded in 2015, Skanda Industries was born from a simple belief — every space has the potential to inspire. What started as a small team of passionate designers has grown into one of India's most trusted interior design and construction firms.",
+    mission:
+      "Our mission is to craft living and working environments that perfectly balance aesthetics, functionality, and sustainability — all delivered with uncompromising quality.",
+    values: [
+      {
+        title: "Quality Craftsmanship",
+        description:
+          "We use only premium materials and partner with the finest artisans to deliver interiors that stand the test of time.",
+      },
+      {
+        title: "Client-First Approach",
+        description:
+          "Every project begins and ends with you. We listen, iterate, and perfect until your vision becomes reality.",
+      },
+      {
+        title: "Innovation & Design",
+        description:
+          "We stay ahead of trends with cutting-edge 3D visualization, smart home integration, and sustainable practices.",
+      },
+    ],
+  },
+
   process: [
-    { step: "01", title: "Consultation", description: "We begin with a free consultation to understand your vision, lifestyle, and budget preferences." },
-    { step: "02", title: "Design & Planning", description: "Our designers create detailed 3D visualizations and material selections for your approval." },
-    { step: "03", title: "Execution", description: "Expert craftsmen bring the designs to life with precision engineering and quality materials." },
-    { step: "04", title: "Handover", description: "Final walkthrough, quality check, and handover with a comprehensive warranty package." },
+    {
+      step: "01",
+      title: "Consultation",
+      description:
+        "We begin with a free consultation to understand your vision, lifestyle, and budget preferences.",
+    },
+    {
+      step: "02",
+      title: "Design & Planning",
+      description:
+        "Our designers create detailed 3D visualizations and material selections for your approval.",
+    },
+    {
+      step: "03",
+      title: "Execution",
+      description:
+        "Expert craftsmen bring the designs to life with precision engineering and quality materials.",
+    },
+    {
+      step: "04",
+      title: "Handover",
+      description:
+        "Final walkthrough, quality check, and handover with a comprehensive warranty package.",
+    },
   ],
 
   footer: {

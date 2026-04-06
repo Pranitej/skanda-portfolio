@@ -90,8 +90,8 @@ function PortfolioCard({ project, index }) {
         <h3 className="text-white text-xl font-display font-bold">{project.title}</h3>
       </div>
       {/* Always visible label at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 glass-strong rounded-b-3xl px-5 py-3 group-hover:opacity-0 transition-opacity duration-300">
-        <h3 className="font-semibold text-slate-800 dark:text-slate-100 text-sm">{project.title}</h3>
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-5 py-4 group-hover:opacity-0 transition-opacity duration-300">
+        <h3 className="font-semibold text-white text-sm">{project.title}</h3>
       </div>
     </div>
   );

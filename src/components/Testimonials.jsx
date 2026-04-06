@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { config } from '../config';
-import { useScrollReveal } from '../hooks/useAnimations';
+import { useState } from "react";
+import { config } from "../config";
+import { useScrollReveal } from "../hooks/useAnimations";
 
 export default function Testimonials() {
   const [titleRef, titleVisible] = useScrollReveal(0.3);
@@ -14,7 +14,10 @@ export default function Testimonials() {
       {/* Large radial glow behind card */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-brand-300/6 dark:bg-brand-400/3 rounded-full blur-3xl" />
       {/* Floating accent orbs */}
-      <div className="absolute top-16 right-[12%] w-56 h-56 bg-brand-200/10 dark:bg-brand-500/5 rounded-full blur-3xl animate-float-slow" style={{ animationDelay: '2s' }} />
+      <div
+        className="absolute top-16 right-[12%] w-56 h-56 bg-brand-200/10 dark:bg-brand-500/5 rounded-full blur-3xl animate-float-slow"
+        style={{ animationDelay: "2s" }}
+      />
       <div className="absolute bottom-16 left-[8%] w-72 h-72 bg-brand-300/8 dark:bg-brand-400/4 rounded-full blur-3xl animate-float-reverse" />
       {/* Corner accent sparkles */}
       <div className="absolute top-10 left-10 w-2 h-2 bg-brand-400/30 dark:bg-brand-300/20 rounded-full" />
@@ -25,14 +28,13 @@ export default function Testimonials() {
         {/* Title */}
         <div
           ref={titleRef}
-          className={`text-center mb-16 transition-all duration-700 ${titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          className={`text-center mb-16 transition-all duration-700 ${titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
           <span className="inline-block text-brand dark:text-brand-300 text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Testimonials
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-slate-900 dark:text-white">
-            What Our Clients{' '}
-            <span className="text-gradient">Say</span>
+            What Our Clients <span className="text-gradient">Say</span>
           </h2>
         </div>
 
@@ -41,13 +43,28 @@ export default function Testimonials() {
           <div className="glass-strong rounded-3xl p-8 md:p-12 text-center relative">
             {/* Quote icon */}
             <div className="absolute -top-5 left-1/2 -translate-x-1/2 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-amber-500 flex items-center justify-center shadow-lg shadow-brand/30">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z"/></svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11h4v10H0z" />
+              </svg>
             </div>
 
             {/* Stars */}
             <div className="flex justify-center gap-1 mb-6 mt-2">
               {[...Array(config.testimonials[active].rating)].map((_, i) => (
-                <svg key={i} xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg
+                  key={i}
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-amber-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
               ))}
             </div>
 
@@ -78,8 +95,8 @@ export default function Testimonials() {
                 onClick={() => setActive(idx)}
                 className={`transition-all duration-300 rounded-full ${
                   active === idx
-                    ? 'w-10 h-3 bg-gradient-to-r from-brand to-brand-700'
-                    : 'w-3 h-3 bg-slate-300 dark:bg-slate-600 hover:bg-brand-200 dark:hover:bg-brand-700'
+                    ? "w-10 h-3 bg-gradient-to-r from-brand to-brand-700"
+                    : "w-3 h-3 bg-slate-300 dark:bg-slate-600 hover:bg-brand-200 dark:hover:bg-brand-700"
                 }`}
               />
             ))}
