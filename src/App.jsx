@@ -43,7 +43,7 @@ const ScrollProgressBar = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full h-1 z-50 bg-gray-200/30 dark:bg-gray-800/30 backdrop-blur-[1px]">
+      <div className="fixed top-0 left-0 w-full h-1 z-50 bg-transparent backdrop-blur-[1px]">
         <div
           className="h-full relative overflow-hidden"
           style={{
