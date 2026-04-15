@@ -53,6 +53,7 @@ export default {
         'shimmer': 'shimmer 2.5s linear infinite',
         'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
         'spin-slow': 'spin 25s linear infinite',
+        'line-flow': 'lineFlow 3.5s linear infinite',
       },
       keyframes: {
         fadeUp: {
@@ -90,6 +91,10 @@ export default {
         pulseGlow: {
           '0%, 100%': { boxShadow: '0 0 20px rgba(212, 155, 0, 0.3)' },
           '50%': { boxShadow: '0 0 40px rgba(212, 155, 0, 0.6)' },
+        },
+        lineFlow: {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(200%)' },
         },
       },
     },

@@ -1,5 +1,68 @@
+import { useEffect, useRef } from "react";
 import { config } from "../config";
 import { useScrollReveal } from "../hooks/useAnimations";
+
+function useTimelineProgress(containerRef, fillRef) {
+  useEffect(() => {
+    const container = containerRef.current;
+    const fill = fillRef.current;
+    if (!container || !fill) return;
+
+    let rafId = 0;
+    let current = 0;
+    let goal = 0;
+    let usable = 0;
+
+    const compute = () => {
+      const rect = container.getBoundingClientRect();
+      const viewportH =
+        window.innerHeight || document.documentElement.clientHeight;
+      // half-node offset so the line starts/ends at the center of the
+      // first and last number circles (w-12 => 48/2 = 24, md:w-16 => 64/2 = 32)
+      const isMd = window.matchMedia("(min-width: 768px)").matches;
+      const halfNode = isMd ? 32 : 24;
+      usable = Math.max(0, rect.height - halfNode * 2);
+
+      const anchor = viewportH * 0.55;
+      const scrolled = anchor - (rect.top + halfNode);
+      goal = Math.max(0, Math.min(1, scrolled / usable));
+    };
+
+    const apply = (pct) => {
+      fill.style.height = `${pct * usable}px`;
+    };
+
+    const tick = () => {
+      const diff = goal - current;
+      if (Math.abs(diff) < 0.0005) {
+        current = goal;
+        apply(current);
+        rafId = 0;
+        return;
+      }
+      current += diff * 0.12;
+      apply(current);
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const onScroll = () => {
+      compute();
+      if (!rafId) rafId = requestAnimationFrame(tick);
+    };
+
+    compute();
+    current = goal;
+    apply(current);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, [containerRef, fillRef]);
+}
 
 /* ── step icon lookup ── */
 const stepIcons = [
@@ -17,6 +80,9 @@ const stepIcons = [
 
 export default function Process() {
   const [titleRef, titleVisible] = useScrollReveal(0.3);
+  const timelineRef = useRef(null);
+  const fillRef = useRef(null);
+  useTimelineProgress(timelineRef, fillRef);
 
   return (
     <section className="section-blend relative py-24 md:py-32 overflow-hidden">
@@ -49,9 +115,24 @@ export default function Process() {
         </div>
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical connector line */}
-          <div className="absolute left-6 md:left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-brand-300/40 via-brand/50 to-brand-300/40 dark:from-brand-400/20 dark:via-brand-400/30 dark:to-brand-400/20" />
+        <div ref={timelineRef} className="relative">
+          {/* Base track (dim) — starts at center of first node, ends at center of last node */}
+          <div className="absolute left-6 md:left-8 top-6 md:top-8 bottom-6 md:bottom-8 w-[2px] -translate-x-[1px] bg-gradient-to-b from-slate-300/40 via-slate-400/30 to-slate-300/40 dark:from-slate-700/40 dark:via-slate-600/30 dark:to-slate-700/40 overflow-hidden">
+            {/* Continuous shimmer flow */}
+            <div className="absolute inset-x-0 -top-full h-full bg-gradient-to-b from-transparent via-brand-300/30 to-transparent animate-line-flow" />
+          </div>
+
+          {/* Animated progress fill */}
+          <div
+            ref={fillRef}
+            className="absolute left-6 md:left-8 top-6 md:top-8 w-[2px] -translate-x-[1px] will-change-[height]"
+            style={{ height: "0px" }}
+          >
+            {/* gradient fill */}
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-300 via-brand to-brand-700 dark:from-brand-400 dark:via-brand-300 dark:to-brand-500 rounded-full shadow-[0_0_12px_rgba(212,155,0,0.45)]" />
+            {/* Traveling glow dot at the tip */}
+            <div className="absolute -left-[5px] bottom-0 w-3 h-3 rounded-full bg-brand shadow-[0_0_16px_4px_rgba(212,155,0,0.6)] animate-pulse-glow" />
+          </div>
 
           <div className="flex flex-col gap-10 md:gap-12">
             {config.process.map((step, idx) => (

@@ -4,11 +4,56 @@ import { config } from "../config";
 export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState(
+    config.nav.links[0]?.href.replace("#", "") || "home",
+  );
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = config.nav.links.map((l) => l.href.replace("#", ""));
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+    if (!sections.length) return;
+
+    // Active band sits ~halfway down the viewport — reliable on every screen
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry closest to the active band
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length) {
+          const top = visible.reduce((a, b) =>
+            a.boundingClientRect.top > b.boundingClientRect.top ? b : a,
+          );
+          setActiveSection(top.target.id);
+        }
+      },
+      {
+        rootMargin: "-45% 0px -50% 0px",
+        threshold: 0,
+      },
+    );
+
+    sections.forEach((s) => observer.observe(s));
+
+    // Bottom-of-page fallback: last section becomes active when we hit bottom
+    const onScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+      if (nearBottom) setActiveSection(ids[ids.length - 1]);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
@@ -49,19 +94,30 @@ export default function Navbar({ theme, toggleTheme }) {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-1">
-          {config.nav.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
-                theme === "dark"
-                  ? "text-white/80 hover:text-[#D49B00] hover:bg-[rgba(255,255,255,0.15)]"
-                  : "text-slate-700 hover:text-[#D49B00] hover:bg-[rgba(0,0,0,0.08)]"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {config.nav.links.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`relative px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                  isActive
+                    ? "bg-gradient-to-r from-[#FFD700] via-[#F0B100] to-[#D49B00] bg-clip-text text-transparent"
+                    : theme === "dark"
+                      ? "text-white/80 hover:text-[#D49B00] hover:bg-[rgba(255,255,255,0.15)]"
+                      : "text-slate-700 hover:text-[#D49B00] hover:bg-[rgba(0,0,0,0.08)]"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`pointer-events-none absolute left-1/2 bottom-1 h-[2px] rounded-full bg-gradient-to-r from-[#FFD700] via-[#F0B100] to-[#D49B00] shadow-[0_0_8px_rgba(212,155,0,0.6)] transition-all duration-300 -translate-x-1/2 ${
+                    isActive ? "w-8 opacity-100" : "w-0 opacity-0"
+                  }`}
+                />
+              </a>
+            );
+          })}
         </div>
 
         {/* Right Side */}
@@ -164,20 +220,31 @@ export default function Navbar({ theme, toggleTheme }) {
               : "bg-[rgba(255,255,255,0.85)] border border-[rgba(255,255,255,0.9)] shadow-2xl"
           }`}
         >
-          {config.nav.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
-                theme === "dark"
-                  ? "text-white/80 hover:text-[#D49B00] hover:bg-[rgba(255,255,255,0.15)]"
-                  : "text-slate-700 hover:text-[#D49B00] hover:bg-[rgba(0,0,0,0.08)]"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {config.nav.links.map((link) => {
+            const isActive = activeSection === link.href.replace("#", "");
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                aria-current={isActive ? "page" : undefined}
+                className={`relative block px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                  isActive
+                    ? "bg-gradient-to-r from-[#FFD700] via-[#F0B100] to-[#D49B00] bg-clip-text text-transparent"
+                    : theme === "dark"
+                      ? "text-white/80 hover:text-[#D49B00] hover:bg-[rgba(255,255,255,0.15)]"
+                      : "text-slate-700 hover:text-[#D49B00] hover:bg-[rgba(0,0,0,0.08)]"
+                }`}
+              >
+                {link.label}
+                <span
+                  className={`pointer-events-none absolute left-4 bottom-2.5 h-[2px] rounded-full bg-gradient-to-r from-[#FFD700] via-[#F0B100] to-[#D49B00] shadow-[0_0_8px_rgba(212,155,0,0.6)] transition-all duration-300 ${
+                    isActive ? "w-8 opacity-100" : "w-0 opacity-0"
+                  }`}
+                />
+              </a>
+            );
+          })}
           <a
             href="#contact"
             onClick={() => setMobileOpen(false)}
