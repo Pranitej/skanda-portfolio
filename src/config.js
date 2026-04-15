@@ -40,7 +40,7 @@ export const config = {
   },
 
   stats: [
-    { value: 500, suffix: "+", label: "Projects Completed" },
+    { value: 2000, suffix: "+", label: "Projects Completed" },
     { value: 12, suffix: "+", label: "Years Experience" },
     { value: 100, suffix: "%", label: "Automated Modular Factory" },
     { value: 98, suffix: "%", label: "Client Satisfaction" },
@@ -51,42 +51,49 @@ export const config = {
       id: "modular-kitchens",
       title: "Modular Kitchens",
       description:
-        "State-of-the-art functional kitchens designed to match your culinary lifestyle along with customization premium hardware and Wood with Customization With 10years unconditional Warranty.",
+        "State-of-the-art modular kitchens designed to complement your culinary lifestyle. Featuring premium hardware, customizable wood finishes, and fully personalized layouts — all backed by a 10-year unconditional warranty.",
       image: "/images/kitchen.png",
     },
     {
       id: "wardrobes",
       title: "Premium Wardrobes",
       description:
-        "Custom-built, space-saving wooden and glass sliding, openable and walk-in wardrobes with luxury finishes and smart organization.",
+        "Custom-built, space-saving wardrobes available in wooden and glass finishes with sliding, openable, and walk-in configurations. Crafted with luxury hardware and smart organization systems for effortless living.",
       image: "/images/wardrobe.png",
     },
     {
       id: "home-interiors",
       title: "Full Home Interiors",
       description:
-        "End-to-end interior design and execution such as ceiling, electrical, plumbing, flooring, partitions, TV units, Kitchen and wardrobes, etc for living rooms, bedrooms, and every corner of your home.",
+        "Comprehensive end-to-end interior design and execution — including ceilings, electrical work, plumbing, flooring, partitions, TV units, kitchens, and wardrobes — tailored for living rooms, bedrooms, and every corner of your home.",
       image: "/images/bedroom.png",
     },
     {
       id: "construction",
       title: "Construction & Renovation",
       description:
-        "Planning, Designing and Structural changes, civil work, and premium renovations handled by seasoned construction experts.",
+        "Expert planning, designing, and execution of structural changes, civil work, and premium renovations — delivered by seasoned construction professionals with precision and reliability.",
       image: "/images/construction.png",
     },
     {
       id: "commercial",
       title: "Commercial Spaces",
       description:
-        "Dynamic and ergonomic office interiors that boost productivity and leave lasting impressions.",
+        "Dynamic, ergonomic office interiors engineered to boost productivity, reflect your brand identity, and leave a lasting impression on clients and employees alike.",
       image: "/images/office.png",
     },
     {
       id: "decor",
       title: "Decor & Furnishing",
       description:
-        "Curated lighting, custom soft furnishings such as curtains and blinds, wallpapers and bespoke home decor elements from around the world.",
+        "Curated lighting solutions, custom soft furnishings including curtains and blinds, designer wallpapers, and bespoke home decor elements sourced from around the world.",
+      image: "/images/hero.png",
+    },
+    {
+      id: "home-theater-smart-solutions",
+      title: "Home Theater & Automation/Smart Solutions",
+      description:
+        "Immersive home theater setups with premium acoustics, projection systems, and ambient lighting — paired with cutting-edge home automation and smart solutions for seamless control of lighting, climate, security, and entertainment.",
       image: "/images/hero.png",
     },
   ],
@@ -149,7 +156,7 @@ export const config = {
     subtitle: "Who We Are",
     heading: "About Us",
     story:
-      "Founded in 2015, Skanda Industries was born from a simple belief — every space has the potential to inspire. What started as a small team of passionate designers has grown into one of India's most trusted interior design and construction firms.",
+      "Founded in 2002, Skanda Industries was born from a simple belief — every space has the potential to inspire. What started as a small team of passionate designers has grown into one of India's most trusted interior design and construction firms.",
     mission:
       "Our mission is to craft living and working environments that perfectly balance aesthetics, functionality, and sustainability — all delivered with uncompromising quality.",
     values: [
@@ -186,15 +193,21 @@ export const config = {
     },
     {
       step: "03",
-      title: "Execution",
+      title: "Budgeting",
       description:
-        "Expert craftsmen bring the designs to life with precision engineering and quality materials.",
+        "Transparent and detailed budgeting to align your vision with a clear cost breakdown — ensuring no surprises and maximum value for your investment.",
     },
     {
       step: "04",
+      title: "Execution",
+      description:
+        "All components are precision-manufactured in our state-of-the-art factory and assembled on-site by expert craftsmen using quality materials and engineering.",
+    },
+    {
+      step: "05",
       title: "Handover",
       description:
-        "Final walkthrough, quality check, and handover with a comprehensive warranty package.",
+        "Thorough deep cleaning, final walkthrough, quality inspection, and handover with a comprehensive warranty package — ready for you to move in.",
     },
   ],
 
@@ -212,6 +225,7 @@ export const config = {
       "Home Interiors",
       "Construction",
       "Commercial Spaces",
+      "Home Theater & Smart Solutions",
     ],
   },
 };
