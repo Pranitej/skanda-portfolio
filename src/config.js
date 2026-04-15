@@ -94,7 +94,7 @@ export const config = {
       title: "Home Theater & Automation/Smart Solutions",
       description:
         "Immersive home theater setups with premium acoustics, projection systems, and ambient lighting — paired with cutting-edge home automation and smart solutions for seamless control of lighting, climate, security, and entertainment.",
-      image: "/images/hero.png",
+      image: "/images/hometheater.png",
     },
   ],
 
