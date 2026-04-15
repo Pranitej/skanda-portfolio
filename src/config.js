@@ -99,34 +99,107 @@ export const config = {
   ],
 
   portfolio: [
+    // Residential
     {
-      image: "/images/hero.png",
+      image: "/images/portfolio_res_1.png",
       title: "Luxe Living Room",
+      category: "Residential",
+      featured: true,
+    },
+    {
+      image: "/images/portfolio_res_2.png",
+      title: "Contemporary Living Room",
       category: "Residential",
     },
     {
-      image: "/images/kitchen.png",
+      image: "/images/portfolio_res_3.png",
+      title: "Minimalist Lounge",
+      category: "Residential",
+    },
+    // Kitchen
+    {
+      image: "/images/portfolio_kitchen_1.png",
+      
+      featured: true,
+      title: "Premium Island Kitchen",
+      category: "Kitchen",
+    },
+    {
+      image: "/images/kitchen-1.jpg",
       title: "Modern Kitchen",
       category: "Kitchen",
     },
     {
+      image: "/images/kitchen_3.png",
+      title: "Luxury Breakfast Bar",
+      category: "Kitchen",
+    },
+    // Bedroom
+    {
       image: "/images/bedroom.png",
       title: "Master Suite",
       category: "Bedroom",
+      featured: true,
+    },
+    {
+      image: "/images/portfolio_bed_2.png",
+      title: "Luxury Guest Bedroom",
+      category: "Bedroom",
+    },
+    {
+      image: "/images/bedroom_2.png",
+      title: "Grand Master Bedroom",
+      category: "Bedroom",
+    },
+    // Wardrobe
+    {
+      image: "/images/wardrobe-3.jpg",
+      title: "Glass Sliding Wardrobe",
+      category: "Wardrobe",
     },
     {
       image: "/images/wardrobe.png",
       title: "Walk-in Closet",
       category: "Wardrobe",
+      featured: true,
     },
+    {
+      image: "/images/wardrobe-1.jpg",
+      title: "Built-in Luxury Wardrobe",
+      category: "Wardrobe",
+    },
+    // Commercial
     {
       image: "/images/office.png",
       title: "Corporate Office",
       category: "Commercial",
     },
     {
-      image: "/images/construction.png",
+      image: "/images/portfolio_comm_3.png",
+      title: "Executive Workspace",
+      category: "Commercial",
+      featured: true,
+    },
+    {
+      image: "/images/portfolio_comm_1.png",
+      title: "Lounge Area",
+      category: "Commercial",
+    },
+    // Construction
+    {
+      image: "/images/const-1.jpg",
       title: "Villa Project",
+      category: "Construction",
+      featured: true,
+    },
+    {
+      image: "/images/const-2.jpg",
+      title: "Modern Mansion Build",
+      category: "Construction",
+    },
+    {
+      image: "/images/renovation-1.jpg",
+      title: "Luxury Apartment Reno",
       category: "Construction",
     },
   ],

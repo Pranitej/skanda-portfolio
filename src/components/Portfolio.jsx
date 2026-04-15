@@ -12,7 +12,7 @@ export default function Portfolio() {
   ];
   const filtered =
     activeFilter === "All"
-      ? config.portfolio
+      ? config.portfolio.filter((p) => p.featured)
       : config.portfolio.filter((p) => p.category === activeFilter);
 
   return (
