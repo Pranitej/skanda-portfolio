@@ -33,6 +33,10 @@ export default function Testimonials() {
         style={{ animationDelay: "2s" }}
       />
       <div className="absolute bottom-16 left-[8%] w-72 h-72 bg-brand-300/8 dark:bg-brand-400/4 rounded-full blur-3xl animate-float-reverse" />
+      {/* Corner accent sparkles */}
+      {/* <div className="absolute top-10 left-10 w-2 h-2 bg-brand-400/30 dark:bg-brand-300/20 rounded-full" />
+      <div className="absolute top-24 right-20 w-1.5 h-1.5 bg-brand-400/25 dark:bg-brand-300/15 rounded-full" />
+      <div className="absolute bottom-20 right-16 w-2 h-2 bg-brand-400/20 dark:bg-brand-300/10 rounded-full" /> */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
@@ -139,12 +143,12 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Mobile Nav Buttons */}
-          <div className="flex md:hidden justify-center items-center gap-4 mt-8">
+          {/* Mobile Nav Buttons + Dots */}
+          <div className="flex justify-center items-center gap-4 mt-8">
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-              className="w-10 h-10 rounded-full glass-strong flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-brand dark:hover:text-brand-300 transition-all duration-300"
+              className="md:hidden w-10 h-10 rounded-full glass-strong flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-brand dark:hover:text-brand-300 transition-all duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -158,10 +162,25 @@ export default function Testimonials() {
               </svg>
             </button>
 
+            <div className="flex justify-center gap-3">
+              {config.testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goTo(idx)}
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                  className={`transition-all duration-300 rounded-full ${
+                    active === idx
+                      ? "w-10 h-3 bg-gradient-to-r from-brand to-brand-700"
+                      : "w-3 h-3 bg-slate-300 dark:bg-slate-600 hover:bg-brand-200 dark:hover:bg-brand-700"
+                  }`}
+                />
+              ))}
+            </div>
+
             <button
               onClick={next}
               aria-label="Next testimonial"
-              className="w-10 h-10 rounded-full glass-strong flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-brand dark:hover:text-brand-300 transition-all duration-300"
+              className="md:hidden w-10 h-10 rounded-full glass-strong flex items-center justify-center text-slate-700 dark:text-slate-200 hover:text-brand dark:hover:text-brand-300 transition-all duration-300"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
