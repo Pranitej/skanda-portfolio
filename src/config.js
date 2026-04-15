@@ -11,7 +11,7 @@ export const config = {
     email: "contact@skandaindustries.com",
     phone: "+91 98765 43210",
     address: "123 Elite Avenue, Tech Park, Hyderabad, India",
-    founded: "2015",
+    founded: "2002",
     socials: {
       instagram: "https://instagram.com/skandaindustries",
       facebook: "https://facebook.com/skandaindustries",
@@ -42,8 +42,8 @@ export const config = {
   stats: [
     { value: 500, suffix: "+", label: "Projects Completed" },
     { value: 12, suffix: "+", label: "Years Experience" },
+    { value: 100, suffix: "%", label: "Automated Modular Factory" },
     { value: 98, suffix: "%", label: "Client Satisfaction" },
-    { value: 50, suffix: "+", label: "Expert Designers" },
   ],
 
   services: [
@@ -51,28 +51,28 @@ export const config = {
       id: "modular-kitchens",
       title: "Modular Kitchens",
       description:
-        "State-of-the-art functional kitchens designed to match your culinary lifestyle with premium European hardware.",
+        "State-of-the-art functional kitchens designed to match your culinary lifestyle along with customization premium hardware and Wood with Customization With 10years unconditional Warranty.",
       image: "/images/kitchen.png",
     },
     {
       id: "wardrobes",
       title: "Premium Wardrobes",
       description:
-        "Custom-built, space-saving sliding and walk-in wardrobes with luxury finishes and smart organization.",
+        "Custom-built, space-saving wooden and glass sliding, openable and walk-in wardrobes with luxury finishes and smart organization.",
       image: "/images/wardrobe.png",
     },
     {
       id: "home-interiors",
       title: "Full Home Interiors",
       description:
-        "End-to-end interior design and execution for living rooms, bedrooms, and every corner of your home.",
+        "End-to-end interior design and execution such as ceiling, electrical, plumbing, flooring, partitions, TV units, Kitchen and wardrobes, etc for living rooms, bedrooms, and every corner of your home.",
       image: "/images/bedroom.png",
     },
     {
       id: "construction",
       title: "Construction & Renovation",
       description:
-        "Structural changes, civil work, and premium renovations handled by seasoned construction experts.",
+        "Planning, Designing and Structural changes, civil work, and premium renovations handled by seasoned construction experts.",
       image: "/images/construction.png",
     },
     {
@@ -86,7 +86,7 @@ export const config = {
       id: "decor",
       title: "Decor & Furnishing",
       description:
-        "Curated lighting, custom soft furnishings, and bespoke home decor elements from around the world.",
+        "Curated lighting, custom soft furnishings such as curtains and blinds, wallpapers and bespoke home decor elements from around the world.",
       image: "/images/hero.png",
     },
   ],
@@ -176,7 +176,7 @@ export const config = {
       step: "01",
       title: "Consultation",
       description:
-        "We begin with a free consultation to understand your vision, lifestyle, and budget preferences.",
+        "We begin with a consultation to understand your vision, lifestyle, and budget preferences.",
     },
     {
       step: "02",
