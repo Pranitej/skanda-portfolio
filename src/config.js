@@ -8,15 +8,31 @@ export const config = {
       "Premium Home Interiors & Construction — Elevating Your Living Spaces",
     description:
       "We transform ordinary spaces into extraordinary experiences. From concept to completion, our team of expert designers and builders craft bespoke interiors that reflect your unique personality and lifestyle.",
-    email: "contact@skandaindustries.com",
-    phone: "+91 98765 43210",
-    address: "123 Elite Avenue, Tech Park, Hyderabad, India",
+    email: "industry.skanda@gmail.com",
+    phones: [
+      "+91 97003 60963",
+      "+91 98665 65057",
+      "+91 92468 93307",
+      "+91 77996 77762",
+    ],
+    storeAddress: {
+      label: "Showroom",
+      line: "12-8-295, Hunter Road, Hanuman Temple Rd, opp. to HP Petrol Pump, near Santoshi Matha, Warangal, Telangana 506002",
+      mapUrl:
+        "https://maps.app.goo.gl/FZmk7x3rvTe2s2Ds9",
+    },
+    industryAddress: {
+      label: "Manufacturing Unit",
+      line: "Sy No. 138/A/1 & 138/2, Elkurthi Road, Grama Panchayat Office, Dharmasagar, Elkurthy PD, Hanumakonda, Telangana - 506142",
+      mapUrl:
+        "https://maps.app.goo.gl/bhRn7KD2FA3uJpP86",
+    },
     founded: "2002",
     socials: {
-      instagram: "https://instagram.com/skandaindustries",
-      facebook: "https://facebook.com/skandaindustries",
-      linkedin: "https://linkedin.com/company/skandaindustries",
-      twitter: "https://twitter.com/skandaind",
+      instagram: "https://www.instagram.com/skandainteriors_60?igsh=MWw0eG15Zm5qOGZsdw==",
+      facebook: "https://www.facebook.com/share/17XDBr7Kza/",
+      youtube: "https://youtube.com/@skandainteriors?si=7H5JXFzjQE3YQBOx",
+      twitter: "https://x.com/SkandaIndu54727",
     },
   },
 

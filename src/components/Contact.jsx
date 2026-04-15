@@ -1,9 +1,16 @@
 import { config } from "../config";
 import { useScrollReveal } from "../hooks/useAnimations";
 
+const telHref = (num) => `tel:${num.replace(/\s+/g, "")}`;
+const whatsappHref = (num) =>
+  `https://wa.me/${num.replace(/[^\d]/g, "")}`;
+
 export default function Contact() {
   const [titleRef, titleVisible] = useScrollReveal(0.3);
   const [ref, isVisible] = useScrollReveal(0.2);
+
+  const { phones, email, storeAddress, industryAddress, socials } =
+    config.company;
 
   return (
     <section
@@ -39,163 +46,127 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-slate-900 dark:text-white">
             Get In <span className="text-gradient">Touch</span>
           </h2>
+          <p className="mt-6 max-w-2xl mx-auto text-slate-600 dark:text-slate-400 leading-relaxed">
+            Ready to start your dream project? Reach out to our team — we're
+            here to bring your vision to life with precision, passion, and
+            premium craftsmanship.
+          </p>
         </div>
 
         <div
           ref={ref}
-          className={`glass-strong rounded-3xl p-8 md:p-14 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Left — Info */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 dark:text-white">
-                  Let's Build Your{" "}
-                  <span className="text-gradient">Dream Home</span>
-                </h3>
-                <p className="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">
-                  {config.company.description}
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <ContactDetail
-                  icon={
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                  }
-                  label={config.company.phone}
-                />
-                <ContactDetail
-                  icon={
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                  }
-                  label={config.company.email}
-                />
-                <ContactDetail
-                  icon={
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
-                  }
-                  label={config.company.address}
-                />
-              </div>
-
-              {/* Social Links */}
-              <div className="flex gap-3">
-                {Object.entries(config.company.socials).map(
-                  ([platform, url]) => (
+          {/* Top row — Phones + Email */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8">
+            {/* Call Us */}
+            <InfoCard
+              label="Call Us"
+              heading="Speak with our team"
+              icon={<PhoneIcon />}
+            >
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {phones.map((num) => (
+                  <li key={num}>
                     <a
-                      key={platform}
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-11 h-11 rounded-xl glass-card flex items-center justify-center hover:scale-110 hover:shadow-lg transition-all duration-300 text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300"
+                      href={telHref(num)}
+                      className="group/phone flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-brand dark:hover:text-brand-300 font-medium transition-colors duration-300"
                     >
-                      <span className="text-sm font-bold uppercase">
-                        {platform.charAt(0)}
-                      </span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand/60 group-hover/phone:bg-brand transition-colors" />
+                      <span className="tabular-nums">{num}</span>
                     </a>
-                  ),
-                )}
-              </div>
-            </div>
-
-            {/* Right — Form */}
-            <div className="glass-card rounded-2xl p-6 md:p-8">
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <FormField
-                    label="Full Name"
-                    type="text"
-                    placeholder="John Doe"
-                  />
-                  <FormField
-                    label="Phone"
-                    type="tel"
-                    placeholder="+91 9876543210"
-                  />
-                </div>
-                <FormField
-                  label="Email"
-                  type="email"
-                  placeholder="john@example.com"
-                />
-                <FormField label="City" type="text" placeholder="Hyderabad" />
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-                    Message
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Tell us about your project..."
-                    className="w-full px-4 py-3 rounded-xl bg-white/60 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-2 focus:ring-brand/30 focus:border-brand outline-none transition-all duration-300 resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="group w-full relative inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand to-brand-700 text-white py-4 rounded-xl font-semibold text-lg shadow-xl shadow-brand/30 hover:shadow-brand/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 overflow-hidden"
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={whatsappHref(phones[0])}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-brand dark:text-brand-300 hover:gap-3 transition-all duration-300"
+              >
+                CHAT ON WHATSAPP
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
                 >
-                  <span className="relative z-10">Send Message</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </InfoCard>
+
+            {/* Email Us */}
+            <InfoCard
+              label="Email Us"
+              heading="Drop us a message"
+              icon={<MailIcon />}
+            >
+              <a
+                href={`mailto:${email}`}
+                className="inline-block text-lg md:text-xl font-display font-semibold text-slate-800 dark:text-white hover:text-brand dark:hover:text-brand-300 transition-colors duration-300 break-all"
+              >
+                {email}
+              </a>
+              <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                We reply to every enquiry within one business day.
+              </p>
+              <a
+                href={`mailto:${email}`}
+                className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-brand dark:text-brand-300 hover:gap-3 transition-all duration-300"
+              >
+                SEND AN EMAIL
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </InfoCard>
+          </div>
+
+          {/* Bottom row — Addresses */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <AddressCard data={storeAddress} icon={<StoreIcon />} />
+            <AddressCard data={industryAddress} icon={<FactoryIcon />} />
+          </div>
+
+          {/* Social Links */}
+          <div className="mt-12 flex flex-col items-center gap-5">
+            <span className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 dark:text-slate-400">
+              Follow Us
+            </span>
+            <div className="flex gap-3">
+              {Object.entries(socials).map(([platform, url]) => {
+                const Icon = socialIcons[platform];
+                return (
+                  <a
+                    key={platform}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={platform}
+                    className="w-12 h-12 rounded-xl glass-card flex items-center justify-center hover:scale-110 hover:shadow-lg hover:shadow-brand/20 transition-all duration-300 text-slate-600 dark:text-slate-300 hover:text-brand dark:hover:text-brand-300"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                  <span className="absolute inset-0 shimmer-bg" />
-                </button>
-              </form>
+                    {Icon ? <Icon className="w-5 h-5" /> : null}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -204,30 +175,194 @@ export default function Contact() {
   );
 }
 
-function ContactDetail({ icon, label }) {
+function InfoCard({ label, heading, icon, children }) {
   return (
-    <div className="flex items-center gap-4 group">
-      <div className="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-900/20 flex items-center justify-center text-brand dark:text-brand-300 group-hover:scale-110 transition-transform duration-300">
-        {icon}
+    <div className="group glass-strong rounded-3xl p-7 md:p-9 relative overflow-hidden hover:shadow-xl hover:shadow-brand/10 transition-all duration-500">
+      {/* Subtle gradient on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+      <div className="relative z-10">
+        <div className="flex items-start gap-4 mb-5">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-amber-500 flex items-center justify-center text-white shadow-lg shadow-brand/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+            {icon}
+          </div>
+          <div>
+            <span className="block text-[10px] font-semibold tracking-[0.2em] uppercase text-brand dark:text-brand-300">
+              {label}
+            </span>
+            <h3 className="mt-1 text-lg font-display font-bold text-slate-900 dark:text-white">
+              {heading}
+            </h3>
+          </div>
+        </div>
+        {children}
       </div>
-      <span className="text-slate-700 dark:text-slate-300 font-medium">
-        {label}
-      </span>
     </div>
   );
 }
 
-function FormField({ label, type, placeholder }) {
+function AddressCard({ data, icon }) {
   return (
-    <div>
-      <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-        {label}
-      </label>
-      <input
-        type={type}
-        placeholder={placeholder}
-        className="w-full px-4 py-3 rounded-xl bg-white/60 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 focus:ring-2 focus:ring-brand/30 focus:border-brand outline-none transition-all duration-300"
-      />
-    </div>
+    <a
+      href={data.mapUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group glass-strong rounded-3xl p-7 md:p-9 relative overflow-hidden hover:shadow-xl hover:shadow-brand/10 hover:-translate-y-1 transition-all duration-500 block"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+      <div className="relative z-10">
+        <div className="flex items-start gap-4 mb-5">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand to-amber-500 flex items-center justify-center text-white shadow-lg shadow-brand/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
+            {icon}
+          </div>
+          <div>
+            <span className="block text-[10px] font-semibold tracking-[0.2em] uppercase text-brand dark:text-brand-300">
+              {data.label}
+            </span>
+            <h3 className="mt-1 text-lg font-display font-bold text-slate-900 dark:text-white">
+              Visit Us
+            </h3>
+          </div>
+        </div>
+
+        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+          {data.line}
+        </p>
+
+        <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold text-brand dark:text-brand-300 group-hover:gap-3 transition-all duration-300">
+          OPEN IN MAPS
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-3.5 h-3.5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
+          </svg>
+        </span>
+      </div>
+    </a>
   );
 }
+
+function PhoneIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+      />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+      />
+    </svg>
+  );
+}
+
+function StoreIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 9l2-5h14l2 5M3 9v10a1 1 0 001 1h16a1 1 0 001-1V9M3 9h18M9 20v-6h6v6"
+      />
+    </svg>
+  );
+}
+
+function FactoryIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M3 21V10l6 3V10l6 3V7l6-3v17H3zM7 21v-4m5 4v-4m5 4v-4"
+      />
+    </svg>
+  );
+}
+
+function InstagramIcon({ className }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+    </svg>
+  );
+}
+
+function FacebookIcon({ className }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  );
+}
+
+function YoutubeIcon({ className }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
+
+function TwitterIcon({ className }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+    </svg>
+  );
+}
+
+const socialIcons = {
+  instagram: InstagramIcon,
+  facebook: FacebookIcon,
+  youtube: YoutubeIcon,
+  twitter: TwitterIcon,
+};
