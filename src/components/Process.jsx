@@ -34,7 +34,7 @@ export default function Process() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-[1px] bg-gradient-to-r from-transparent via-brand-400/30 to-transparent" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-48 h-[1px] bg-gradient-to-r from-transparent via-brand-400/20 to-transparent" />
 
-      <div className="relative z-10 w-full lg:w-[80%] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 w-full lg:w-[75%] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <div
           ref={titleRef}
