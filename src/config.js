@@ -206,21 +206,39 @@ export const config = {
 
   testimonials: [
     {
-      name: "Priya Sharma",
-      role: "Homeowner, Hyderabad",
-      text: "Skanda Industries transformed our 3BHK into a dream home. The attention to detail and quality of materials used were beyond our expectations.",
+      name: "Mr. Maniteja",
+      role: "Homeowner, Warangal",
+      text: "Skanda Industries turned our house into a home we're truly proud of. From modular kitchens to wardrobes, every detail was executed with precision and delivered right on schedule. Their craftsmanship and professionalism are unmatched.",
       rating: 5,
     },
     {
-      name: "Rajesh Mehta",
-      role: "CEO, TechVentures",
-      text: "Our new office interior by Skanda has completely changed the work atmosphere. Employees love the space, and clients are always impressed.",
+      name: "Dr. Chaitanya",
+      role: "Ayurvedic Hospital, Hyderabad",
+      text: "We needed a calming, functional environment for our patients, and Skanda delivered beyond expectations. The interiors beautifully balance traditional aesthetics with modern utility. Our patients and staff love the space.",
       rating: 5,
     },
     {
-      name: "Ananya Reddy",
-      role: "Homeowner, Bangalore",
-      text: "From kitchen to wardrobes, every element was crafted with precision. The team was professional, timely, and incredibly creative.",
+      name: "Mr. Uday",
+      role: "Sri Rama Jewellery, Hanamkonda",
+      text: "For a jewellery showroom, ambience is everything — and Skanda understood that perfectly. The lighting, finishes, and display layout elevate our brand and leave a lasting impression on every customer who walks in.",
+      rating: 5,
+    },
+    {
+      name: "Dr. Suresh",
+      role: "Sunaina Eye Hospital, Mahabubabad",
+      text: "Skanda handled our hospital interiors with remarkable attention to hygiene standards, patient comfort, and workflow efficiency. The team was responsive, disciplined, and delivered a space that truly reflects our quality of care.",
+      rating: 5,
+    },
+    {
+      name: "Mr. Nithin",
+      role: "Vision Saloon, Hanamkonda",
+      text: "The team at Skanda transformed our saloon into a stylish, premium experience for our clients. Their design sense, material choices, and execution quality are top-notch. Our bookings have grown ever since.",
+      rating: 5,
+    },
+    {
+      name: "Valued Clients",
+      role: "Farm Houses & Resorts",
+      text: "From luxury farm houses to boutique resorts, Skanda Industries has crafted countless unforgettable spaces across the region. Their ability to blend elegance with functionality makes them the trusted choice for discerning clients.",
       rating: 5,
     },
   ],
