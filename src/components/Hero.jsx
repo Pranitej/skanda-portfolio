@@ -58,7 +58,7 @@ export default function Hero({ theme }) {
             <span
               className={`text-xs font-medium tracking-wider ${theme === "dark" ? "text-white/70" : "text-white/90"}`}
             >
-              Trusted by 2000+ families
+              Trusted by 500+ families
             </span>
           </div>
 

@@ -18,18 +18,17 @@ export const config = {
     storeAddress: {
       label: "Showroom",
       line: "12-8-295, Hunter Road, Hanuman Temple Rd, opp. to HP Petrol Pump, near Santoshi Matha, Warangal, Telangana 506002",
-      mapUrl:
-        "https://maps.app.goo.gl/FZmk7x3rvTe2s2Ds9",
+      mapUrl: "https://maps.app.goo.gl/FZmk7x3rvTe2s2Ds9",
     },
     industryAddress: {
       label: "Manufacturing Unit",
       line: "Sy No. 138/A/1 & 138/2, Elkurthi Road, Grama Panchayat Office, Dharmasagar, Elkurthy PD, Hanumakonda, Telangana - 506142",
-      mapUrl:
-        "https://maps.app.goo.gl/bhRn7KD2FA3uJpP86",
+      mapUrl: "https://maps.app.goo.gl/bhRn7KD2FA3uJpP86",
     },
-    founded: "2002",
+    founded: "2018",
     socials: {
-      instagram: "https://www.instagram.com/skandainteriors_60?igsh=MWw0eG15Zm5qOGZsdw==",
+      instagram:
+        "https://www.instagram.com/skandainteriors_60?igsh=MWw0eG15Zm5qOGZsdw==",
       facebook: "https://www.facebook.com/share/17XDBr7Kza/",
       youtube: "https://youtube.com/@skandainteriors?si=7H5JXFzjQE3YQBOx",
       twitter: "https://x.com/SkandaIndu54727",
@@ -56,8 +55,8 @@ export const config = {
   },
 
   stats: [
-    { value: 2000, suffix: "+", label: "Projects Completed" },
-    { value: 12, suffix: "+", label: "Years Experience" },
+    { value: 500, suffix: "+", label: "Projects Completed" },
+    { value: 8, suffix: "+", label: "Years Experience" },
     { value: 100, suffix: "%", label: "Automated Modular Factory" },
     { value: 98, suffix: "%", label: "Client Satisfaction" },
   ],
@@ -135,7 +134,7 @@ export const config = {
     // Kitchen
     {
       image: "/images/portfolio_kitchen_1.png",
-      
+
       featured: true,
       title: "Premium Island Kitchen",
       category: "Kitchen",
@@ -263,7 +262,7 @@ export const config = {
     subtitle: "Who We Are",
     heading: "About Us",
     story:
-      "Founded in 2002, Skanda Industries was born from a simple belief — every space has the potential to inspire. What started as a small team of passionate designers has grown into one of India's most trusted interior design and construction firms.",
+      "Founded in 2018, Skanda Industries was born from a simple belief — every space has the potential to inspire. What started as a small team of passionate designers has grown into one of India's most trusted interior design and construction firms.",
     mission:
       "Our mission is to craft living and working environments that perfectly balance aesthetics, functionality, and sustainability — all delivered with uncompromising quality.",
     values: [
@@ -294,15 +293,15 @@ export const config = {
     },
     {
       step: "02",
-      title: "Design & Planning",
-      description:
-        "Our designers create detailed 3D visualizations and material selections for your approval.",
-    },
-    {
-      step: "03",
       title: "Budgeting",
       description:
         "Transparent and detailed budgeting to align your vision with a clear cost breakdown — ensuring no surprises and maximum value for your investment.",
+    },
+    {
+      step: "03",
+      title: "Design & Planning",
+      description:
+        "Our designers create detailed 3D visualizations and material selections for your approval.",
     },
     {
       step: "04",
