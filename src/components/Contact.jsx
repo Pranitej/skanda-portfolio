@@ -9,7 +9,7 @@ export default function Contact() {
   const [titleRef, titleVisible] = useScrollReveal(0.3);
   const [ref, isVisible] = useScrollReveal(0.2);
 
-  const { phones, email, storeAddress, industryAddress, socials } =
+  const { phones, email, showrooms, industryAddress, socials } =
     config.company;
 
   return (
@@ -141,10 +141,21 @@ export default function Contact() {
           </div>
 
           {/* Bottom row — Addresses */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <AddressCard data={storeAddress} icon={<StoreIcon />} />
-            <AddressCard data={industryAddress} icon={<FactoryIcon />} />
-          </div>
+          {(() => {
+            const total = showrooms.length + 1;
+            const cols =
+              total === 2 ? "md:grid-cols-2" :
+              total === 3 ? "md:grid-cols-2 lg:grid-cols-3" :
+              "md:grid-cols-2 lg:grid-cols-4";
+            return (
+              <div className={`grid grid-cols-1 ${cols} gap-6 md:gap-8`}>
+                {showrooms.map((s) => (
+                  <AddressCard key={s.label} data={s} icon={<StoreIcon />} />
+                ))}
+                <AddressCard data={industryAddress} icon={<FactoryIcon />} />
+              </div>
+            );
+          })()}
 
           {/* Social Links */}
           <div className="mt-12 flex flex-col items-center gap-5">

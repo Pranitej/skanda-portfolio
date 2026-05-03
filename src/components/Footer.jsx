@@ -23,7 +23,7 @@ const SOCIAL_ICONS = {
   ),
 };
 
-export default function Footer() {
+export default function Footer({ wordIdx, fading }) {
   return (
     <footer className="section-blend relative pt-16 pb-8 overflow-hidden">
       {/* Background */}
@@ -45,11 +45,21 @@ export default function Footer() {
               </div>
               <span className="text-xl font-bold tracking-tight font-display">
                 <span className="text-brand dark:text-brand-300">{config.company.name.split(' ')[0]}</span>{' '}
-                <span className="text-slate-700 dark:text-slate-300">{config.company.name.split(' ')[1]}</span>
+                <span
+                  className="text-slate-700 dark:text-slate-300"
+                  style={{
+                    display: 'inline-block',
+                    transition: 'opacity 0.3s ease, transform 0.3s ease',
+                    opacity: fading ? 0 : 1,
+                    transform: fading ? 'translateY(-6px)' : 'translateY(0)',
+                  }}
+                >
+                  {config.company.brandWords?.[wordIdx] ?? config.company.name.split(' ')[1]}
+                </span>
               </span>
             </a>
             <p className="text-slate-500 dark:text-slate-400 leading-relaxed text-sm">
-              {config.footer.tagline}
+              {config.company.headerTagline}
             </p>
             {/* Social Icons */}
             <div className="flex gap-2">
@@ -116,16 +126,19 @@ export default function Footer() {
                   {config.company.email}
                 </a>
               </li>
-              <li>
-                <a
-                  href={config.company.storeAddress.mapUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-brand dark:hover:text-brand-300 transition-colors duration-300"
-                >
-                  {config.company.storeAddress.line}
-                </a>
-              </li>
+              {config.company.showrooms.map((s) => (
+                <li key={s.label}>
+                  <a
+                    href={s.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-brand dark:hover:text-brand-300 transition-colors duration-300"
+                  >
+                    <span className="block font-medium text-slate-600 dark:text-slate-300 text-xs mb-0.5">{s.label}</span>
+                    {s.line}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

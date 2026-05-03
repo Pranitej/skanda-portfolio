@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { config } from "./config";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Stats from "./components/Stats";
@@ -106,6 +107,22 @@ const ScrollProgressBar = () => {
 };
 
 function App() {
+  const [wordIdx, setWordIdx] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const words = config.company.brandWords;
+    if (!words?.length) return;
+    const id = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setWordIdx((i) => (i + 1) % words.length);
+        setFading(false);
+      }, 300);
+    }, 2500);
+    return () => clearInterval(id);
+  }, []);
+
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("skanda-theme") || "light";
@@ -133,7 +150,7 @@ function App() {
         aria-hidden="true"
         className="page-ambient pointer-events-none fixed inset-0 -z-10"
       />
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Navbar theme={theme} toggleTheme={toggleTheme} wordIdx={wordIdx} fading={fading} />
       <Hero theme={theme} />
       <Stats />
       <Services />
@@ -142,7 +159,7 @@ function App() {
       <Testimonials />
       <About />
       <Contact />
-      <Footer />
+      <Footer wordIdx={wordIdx} fading={fading} />
     </div>
   );
 }

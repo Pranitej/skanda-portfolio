@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { config } from "../config";
 
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar({ theme, toggleTheme, wordIdx, fading }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(
@@ -80,16 +80,34 @@ export default function Navbar({ theme, toggleTheme }) {
           >
             S
           </div>
-          <span className="text-base sm:text-xl font-bold tracking-tight font-display">
-            <span className="text-[#D49B00]">
-              {config.company.name.split(" ")[0]}
-            </span>{" "}
-            <span
-              className={theme === "dark" ? "text-white/90" : "text-slate-800"}
-            >
-              {config.company.name.split(" ")[1]}
+          <div className="flex flex-col leading-tight">
+            <span className="text-base sm:text-xl font-bold tracking-tight font-display">
+              <span className="text-[#D49B00]">
+                {config.company.name.split(" ")[0]}
+              </span>{" "}
+              <span
+                className={
+                  theme === "dark" ? "text-white/90" : "text-slate-800"
+                }
+                style={{
+                  display: "inline-block",
+                  transition: "opacity 0.3s ease, transform 0.3s ease",
+                  opacity: fading ? 0 : 1,
+                  transform: fading ? "translateY(-6px)" : "translateY(0)",
+                }}
+              >
+                {config.company.brandWords?.[wordIdx] ??
+                  config.company.name.split(" ")[1]}
+              </span>
             </span>
-          </span>
+            <span
+              className={`text-[10px] sm:text-xs tracking-wide ${
+                theme === "dark" ? "text-white/90" : "text-slate-800"
+              }`}
+            >
+              {config.company.headerTagline}
+            </span>
+          </div>
         </a>
 
         {/* Desktop Nav */}

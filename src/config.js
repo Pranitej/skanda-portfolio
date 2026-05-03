@@ -4,6 +4,8 @@
 export const config = {
   company: {
     name: "Skanda Industries",
+    brandWords: ["Industries", "Interiors", "Constructions"],
+    headerTagline: "For every dream home",
     tagline:
       "Premium Home Interiors & Construction — Elevating Your Living Spaces",
     description:
@@ -15,11 +17,18 @@ export const config = {
       "+91 92468 93307",
       "+91 77996 77762",
     ],
-    storeAddress: {
-      label: "Showroom",
-      line: "12-8-295, Hunter Road, Hanuman Temple Rd, opp. to HP Petrol Pump, near Santoshi Matha, Warangal, Telangana 506002",
-      mapUrl: "https://maps.app.goo.gl/FZmk7x3rvTe2s2Ds9",
-    },
+    showrooms: [
+      // {
+      //   label: "Showroom — Warangal",
+      //   line: "12-8-295, Hunter Road, Hanuman Temple Rd, opp. to HP Petrol Pump, near Santoshi Matha, Warangal, Telangana 506002",
+      //   mapUrl: "https://maps.app.goo.gl/FZmk7x3rvTe2s2Ds9",
+      // },
+      {
+        label: "Showroom — Hyderabad",
+        line: "Mallampet Road, opp. to Ratnadeep Supermarket, Mallampet, Hyderabad, Telangana 500118",
+        mapUrl: "https://maps.app.goo.gl/gNcrNDi5i1iQfjCr5?g_st=iwb",
+      },
+    ],
     industryAddress: {
       label: "Manufacturing Unit",
       line: "Sy No. 138/A/1 & 138/2, Elkurthi Road, Grama Panchayat Office, Dharmasagar, Elkurthy PD, Hanumakonda, Telangana - 506142",
@@ -101,7 +110,7 @@ export const config = {
       id: "decor",
       title: "Decor & Furnishing",
       description:
-        "Curated lighting solutions, custom soft furnishings including curtains and blinds, designer wallpapers, and bespoke home decor elements sourced from around the world.",
+        "Transform your space with our complete decor and furnishing service — from statement sofas, recliners, and dining tables to custom curtains, blinds, and designer wallpapers. Every piece is thoughtfully curated to bring warmth, character, and a cohesive luxury feel to your home.",
       image: "/images/hero.png",
     },
     {
@@ -262,9 +271,9 @@ export const config = {
     subtitle: "Who We Are",
     heading: "About Us",
     story:
-      "Founded in 2018, Skanda Industries was born from a simple belief — every space has the potential to inspire. What started as a small team of passionate designers has grown into one of India's most trusted interior design and construction firms.",
+      "Our vision is a world where every family lives in the dream house they deserve — designed with purpose, built with pride, and crafted to reflect who they are. Since 2018, this belief has guided us from a passionate small team into one of India's most trusted names in interior design and construction.",
     mission:
-      "Our mission is to craft living and working environments that perfectly balance aesthetics, functionality, and sustainability — all delivered with uncompromising quality.",
+      "Our mission is to deliver exceptional interiors and construction through a transparent, client-first process — from the very first consultation to the final handover. We combine premium craftsmanship, honest pricing, and innovative design to create spaces that are as functional as they are beautiful.",
     values: [
       {
         title: "Quality Craftsmanship",
