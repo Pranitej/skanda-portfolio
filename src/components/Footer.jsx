@@ -40,21 +40,25 @@ export default function Footer({ wordIdx, fading }) {
           {/* Brand */}
           <div className="lg:col-span-1 space-y-5">
             <a href="#home" className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand to-amber-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-brand/30">
-                S
-              </div>
+              <img src="/logo/logo.png" alt="Skanda Logo" className="w-14 h-14 object-contain" />
               <span className="text-xl font-bold tracking-tight font-display">
                 <span className="text-brand dark:text-brand-300">{config.company.name.split(' ')[0]}</span>{' '}
-                <span
-                  className="text-slate-700 dark:text-slate-300"
-                  style={{
-                    display: 'inline-block',
-                    transition: 'opacity 0.3s ease, transform 0.3s ease',
-                    opacity: fading ? 0 : 1,
-                    transform: fading ? 'translateY(-6px)' : 'translateY(0)',
-                  }}
-                >
-                  {config.company.brandWords?.[wordIdx] ?? config.company.name.split(' ')[1]}
+                <span style={{ display: 'inline-grid', verticalAlign: 'bottom' }}>
+                  {(config.company.brandWords ?? [config.company.name.split(' ')[1]]).map((word, i) => (
+                    <span
+                      key={word}
+                      className="text-slate-700 dark:text-slate-300"
+                      style={{
+                        gridArea: '1 / 1',
+                        transition: 'opacity 0.3s ease, transform 0.3s ease',
+                        opacity: i === wordIdx ? (fading ? 0 : 1) : 0,
+                        transform: i === wordIdx && fading ? 'translateY(-6px)' : 'translateY(0)',
+                        pointerEvents: i === wordIdx ? 'auto' : 'none',
+                      }}
+                    >
+                      {word}
+                    </span>
+                  ))}
                 </span>
               </span>
             </a>

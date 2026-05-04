@@ -5,7 +5,7 @@ export const config = {
   company: {
     name: "Skanda Industries",
     brandWords: ["Industries", "Interiors", "Constructions"],
-    headerTagline: "For every dream home",
+    headerTagline: "For Every Dream Home",
     tagline:
       "Premium Home Interiors & Construction — Elevating Your Living Spaces",
     description:
@@ -18,11 +18,11 @@ export const config = {
       "+91 77996 77762",
     ],
     showrooms: [
-      // {
-      //   label: "Showroom — Warangal",
-      //   line: "12-8-295, Hunter Road, Hanuman Temple Rd, opp. to HP Petrol Pump, near Santoshi Matha, Warangal, Telangana 506002",
-      //   mapUrl: "https://maps.app.goo.gl/FZmk7x3rvTe2s2Ds9",
-      // },
+      {
+        label: "Showroom — Warangal",
+        line: "12-8-295, Hunter Road, Hanuman Temple Rd, opp. to HP Petrol Pump, near Santoshi Matha, Warangal, Telangana 506002",
+        mapUrl: "https://maps.app.goo.gl/FZmk7x3rvTe2s2Ds9",
+      },
       {
         label: "Showroom — Hyderabad",
         line: "Mallampet Road, opp. to Ratnadeep Supermarket, Mallampet, Hyderabad, Telangana 500118",

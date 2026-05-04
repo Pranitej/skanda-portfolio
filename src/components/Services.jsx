@@ -3,7 +3,6 @@ import { useScrollReveal } from '../hooks/useAnimations';
 
 function ServiceCard({ service, index }) {
   const [ref, isVisible] = useScrollReveal(0.15);
-  const isEven = index % 2 === 0;
 
   return (
     <div
@@ -13,25 +12,8 @@ function ServiceCard({ service, index }) {
       }`}
       style={{ transitionDelay: '100ms' }}
     >
-      {/* Image — wrapped in glass-card for visible frost effect */}
-      <div className={`relative overflow-hidden rounded-3xl glass-card p-2 ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-        <div className="aspect-[4/3] overflow-hidden rounded-2xl">
-          <img
-            src={service.image}
-            alt={service.title}
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-          />
-        </div>
-        {/* Overlay badge */}
-        <div className="absolute top-6 left-6 glass rounded-xl px-3 py-1.5">
-          <span className="text-xs font-semibold text-brand dark:text-brand-300 tracking-wider uppercase">
-            {service.id.replace('-', ' ')}
-          </span>
-        </div>
-      </div>
-
       {/* Content */}
-      <div className={`${isEven ? 'md:order-2' : 'md:order-1'} space-y-4`}>
+      <div className="space-y-4">
         <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-100 to-brand-200 dark:from-brand-900/30 dark:to-brand-800/30 shadow-lg shadow-brand/10">
           <span className="text-brand dark:text-brand-300 font-bold text-lg">
             {String(index + 1).padStart(2, '0')}
@@ -50,6 +32,22 @@ function ServiceCard({ service, index }) {
           Learn More
           <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
+      </div>
+
+      {/* Image */}
+      <div className="relative overflow-hidden rounded-3xl glass-card p-2">
+        <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+          <img
+            src={service.image}
+            alt={service.title}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+          />
+        </div>
+        <div className="absolute top-6 left-6 glass rounded-xl px-3 py-1.5">
+          <span className="text-xs font-semibold text-brand dark:text-brand-300 tracking-wider uppercase">
+            {service.id.replace('-', ' ')}
+          </span>
+        </div>
       </div>
     </div>
   );
